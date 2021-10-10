@@ -48,7 +48,16 @@ public class MusicShopTest {
     }
 
     @Test
-    public void canCalculateProfit() {
+    public void canRemoveItemFromStock() {
+        musicShop.addItem(sheetMusic);
+        musicShop.addItem(sheetMusic);
+        musicShop.addItem(sheetMusic);
+        musicShop.removeItem(sheetMusic);
+        assertEquals(2, musicShop.getStock());
+    }
+
+    @Test
+    public void canCalculateFutureProfit() {
         musicShop.addItem(piano);
         musicShop.addItem(sheetMusic);
         assertEquals(6007, musicShop.calculateProfit(), 0.001);
